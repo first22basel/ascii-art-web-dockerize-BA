@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ASCII ART WEB</title>
+		<link rel="stylesheet" href="/static/style.css">
+	  </head>
+<body>
+	<h1>ASCII ART WEB</h1>
+	<form method="POST" action="/">
+		<textarea name="userinput" rows="4" cols="50">{{.UserInput}}</textarea>
+		<h2>Select a Style</h2>
+		<div class="radio-group">
+    <label>
+        <input type="radio" name="banner" value="standard" {{if eq .Banner "standard"}}checked{{end}}>
+        Standard
+    </label>
+    <label>
+        <input type="radio" name="banner" value="shadow" {{if eq .Banner "shadow"}}checked{{end}}>
+        Shadow
+    </label>
+    <label>
+        <input type="radio" name="banner" value="thinkertoy" {{if eq .Banner "thinkertoy"}}checked{{end}}>
+        Thinkertoy
+    </label>
+</div>
+		<h2>Customize Output</h2>
+<div class="customize-group">
+	<label for="fontsize">Font Size:</label>
+	<input type="number" name="fontsize" id="fontsize" value="{{.FontSize}}" />
+	<label for="color">Font Color:</label>
+	<input type="color" name="color" value="{{.FontColor}}" />
+</div>
+
+		<button type="submit">Convert</button>
+	</form>
+	
+<div id="output-section" style="color: {{.FontColor}}; font-size: {{.FontSize}}px;">
+    <pre>{{.AsciiArt}}</pre>
+</div>
+
+	
+</body>
+</html>
