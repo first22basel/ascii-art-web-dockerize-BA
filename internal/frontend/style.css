@@ -126,3 +126,10 @@ input[type="color"] {
     padding: 0;
     border: none;
 }
+
+@media (max-width: 600px) {
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
