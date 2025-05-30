@@ -12,32 +12,32 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Check if style.css is existed
 		err := BA.EnsureFile(
-			"/internal/frontend/style.css",
+			"internal/frontend/style.css",
 			"https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/frontend/style.CSS",
 		)
 		if err != nil {
-			err := BA.EnsureFile("/internal/frontend/500.html", "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/frontend/500.html")
+			err := BA.EnsureFile("internal/frontend/500.html", "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/frontend/500.html")
 			if err != nil {
 				http.Error(w, "500 - Internal Server Error", http.StatusInternalServerError)
 				return
 			}
-			http.ServeFile(w, r, "/internal/frontend/500.html")
+			http.ServeFile(w, r, "internal/frontend/500.html")
 			return
 		}
 
 		// Serve CSS to client
-		http.FileServer(http.Dir("/internal/frontend")).ServeHTTP(w, r)
+		http.FileServer(http.Dir("internal/frontend")).ServeHTTP(w, r)
 	})))
 
 	// Handle wrong routes
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
-			err := BA.EnsureFile("/internal/frontend/404.html", "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/frontend/404.html")
+			err := BA.EnsureFile("internal/frontend/404.html", "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/frontend/404.html")
 			if err != nil {
 				http.Error(w, "404 Server Error", http.StatusNotFound)
 				return
 			}
-			http.ServeFile(w, r, "/internal/frontend/404.html")
+			http.ServeFile(w, r, "internal/frontend/404.html")
 			return
 		}
 

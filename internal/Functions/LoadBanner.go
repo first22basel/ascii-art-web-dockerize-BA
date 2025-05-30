@@ -14,13 +14,13 @@ func LoadBanner(banner string) (map[rune][]string, error) {
 	// Adjust style path according to chosen style
 	switch banner {
 	case "standard":
-		bannerPath = "/internal/banners/standard.txt"
+		bannerPath = "internal/banners/standard.txt"
 		rawURL = "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/banners/standard.txt"
 	case "shadow":
-		bannerPath = "/internal/banners/shadow.txt"
+		bannerPath = "internal/banners/shadow.txt"
 		rawURL = "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/banners/shadow.txt"
 	case "thinkertoy":
-		bannerPath = "/internal/banners/thinkertoy.txt"
+		bannerPath = "internal/banners/thinkertoy.txt"
 		rawURL = "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/banners/thinkertoy.txt"
 	default:
 		return nil, fmt.Errorf("invalid bannner name: %s", banner)
