@@ -15,13 +15,13 @@ func LoadBanner(banner string) (map[rune][]string, error) {
 	switch banner {
 	case "standard":
 		bannerPath = "/internal/banners/standard.txt"
-		rawURL = "https://raw.githubusercontent.com/first22basel/ASCII-ART-WEB-BA/main/internal/banners/standard.txt"
+		rawURL = "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/banners/standard.txt"
 	case "shadow":
 		bannerPath = "/internal/banners/shadow.txt"
-		rawURL = "https://raw.githubusercontent.com/first22basel/ASCII-ART-WEB-BA/main/internal/banners/shadow.txt"
+		rawURL = "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/banners/shadow.txt"
 	case "thinkertoy":
 		bannerPath = "/internal/banners/thinkertoy.txt"
-		rawURL = "https://raw.githubusercontent.com/first22basel/ASCII-ART-WEB-BA/main/internal/banners/thinkertoy.txt"
+		rawURL = "https://raw.githubusercontent.com/first22basel/ascii-art-web-dockerize-BA/main/internal/banners/thinkertoy.txt"
 	default:
 		return nil, fmt.Errorf("invalid bannner name: %s", banner)
 	}
